@@ -1,0 +1,9 @@
+C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\RiskAI.exe.config
+C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\RiskAI.exe
+C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\RiskAI.pdb
+C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\obj\Debug\RiskAI.csprojResolveAssemblyReference.cache
+C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\obj\Debug\RiskAI.csproj.CoreCompileInputs.cache
+C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\obj\Debug\RiskAI.exe
+C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\obj\Debug\RiskAI.pdb
+C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\Data\Countries.txt
+C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\Data\Neighbors.txt

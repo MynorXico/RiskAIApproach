@@ -1,0 +1,42 @@
+﻿1,Alaska
+2,Alberta
+3,México,América Central y el Caribe
+4,Estados Unidos del Este
+5,Groenlandia
+6,Territorios del Noroeste
+7,Ontario
+8,Quebec
+9,Estados Unidos del Oeste
+10,Argentina
+11,Brasil
+12,Perú
+13,Venezuela
+14,Congo
+15,África Oriental
+16,Egipto
+17,Madagascar
+18,África del Norte
+19,Sudáfrica
+20,Gran Bretaña
+21,Islandia
+22,Europa del Norte
+23,Escandinavia
+24,Europa del Sur
+25,Ucrania2
+26,Europa Occidental
+27,Afganistán
+28,China
+29,India
+30,Irkutsk
+31,Japón
+32,Kamchatka
+33,Oriente Medio
+34,Mongolia
+35,Siam2
+36,Siberia
+37,Ural
+38,Yakutsk
+39,Australia Oriental
+40,Indonesia
+41,Nueva Guinea
+42,Australia Occidental
