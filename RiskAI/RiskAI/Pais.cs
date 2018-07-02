@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace RiskAI
 {
+
     public class Pais
     {
         string Nombre { get; }
         List<Pais> Vecinos { get; }
+        int Tropas { get; set; }
 
         /// <summary>
         /// 
@@ -30,4 +32,6 @@ namespace RiskAI
             Vecinos.Add(p);
         }
     }
+
+  
 }
