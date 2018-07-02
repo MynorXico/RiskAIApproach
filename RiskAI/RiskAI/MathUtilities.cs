@@ -32,5 +32,10 @@ namespace RiskAI
         {
             return 1 / (1+Math.Exp(-x));
         }
+
+        public static double LogisticDerivative(double x)
+        {
+            return x * (1 - x);
+        }
     }
 }
