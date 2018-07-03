@@ -8,7 +8,7 @@ namespace RiskAI
 {
     class MapaMundi
     {
-        public List<Pais> Paises { get; }
+        public List<Country> Paises { get; }
 
         /// <summary>
         /// 
@@ -16,19 +16,19 @@ namespace RiskAI
         /// <param name="nombre"></param>
         public void AgregarPais(String nombre)
         {
-            Pais p = new Pais(nombre);
+            Country p = new Country(nombre);
             Paises.Add(p);
         }
 
         public MapaMundi()
         {
-            Paises = new List<Pais>();
+            Paises = new List<Country>();
         }
         
         public MapaMundi(string _rutaNombresPaises, string _rutaVecinosPaises)
         {
             string[] lineas = File.ReadAllLines(_rutaNombresPaises);
-            Paises = new List<Pais>();
+            Paises = new List<Country>();
 
             for (int i = 0; i < lineas.Length; i++)
             {

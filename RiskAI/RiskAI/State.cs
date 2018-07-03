@@ -12,54 +12,103 @@ namespace RiskAI
     public class State
     {
         // Number of armies a player is given at the begining of the turn
-        int NewArmies { get; }
+        double NewArmies { get; }
         // Number of troops an enemy has at the begining of the turn
-        int EnemyNewArmies { get; }
+        double EnemyNewArmies { get; }
 
         // Number of troops a player has at the begining of the turn
-        int Troops { get; }
+        double Troops { get; }
         // Number of troops the enemy has at the begining of the turn
-        int EnemyTroops { get; }
+        double EnemyTroops { get; }
 
         // Number of clusters a player owns
-        int Clusters { get; }
+        double Clusters { get; }
         // Number of clusters the enemy owns
-        int EnemyClusters { get; }
+        double EnemyClusters { get; }
 
         // Number of countries a playwer owns
-        int Countries { get; }
+        double Countries { get; }
         // Number of not allied countries
-        int EnemyCountries { get; }
+        double EnemyCountries { get; }
+        // Number of free countries (nobody owns them)
+        double FreeCountries { get; }
 
         // Number of bordering countries
-        int BorderingCountries { get; }
+        double BorderingCountries { get; }
         // Number of not allied neighbors
-        int NearbyEnemies { get; }
-       
+        double NearbyEnemies { get; }
+        // Number of countries owned by nobody
+        double FreeNearbyCountries { get; }
+
         // Number of troops in largest cluster
-        int LargestClusterTroops { get; }
+        double LargestClusterTroops { get; }
         // Number of troops in largest enemy cluster
-        int LargestEnemyClusterTroops { get; }
+        double LargestEnemyClusterTroops { get; }
 
         // Number of countries in largest cluster
-        int LargestClusterCountries { get; }
+        double LargestClusterCountries { get; }
         // Number of countries in largest enemy cluster1
-        int LargestEnemyClusterCountries { get; }
+        double LargestEnemyClusterCountries { get; }
 
         // 1 -> win / 0-> lost
-        int Win { get; }
+        double Win { get; }
         /*
          *
          *  Pending to add the number of enemy neighbors 
          * each allied country has. In case the player 
          * doesn't own a country, it has a value of zero
         */
+        
         public double[] GetVector()
         {
-            double[] vector = { NewArmies,EnemyNewArmies,Clusters,EnemyClusters,Countries, Win};
-
+            double[] vector = { NewArmies, EnemyNewArmies, Troops, EnemyTroops, Clusters,EnemyClusters,Countries,EnemyCountries,FreeCountries,BorderingCountries,NearbyEnemies,FreeNearbyCountries,LargestClusterTroops,LargestClusterCountries,Win};
             return vector;
         }
 
+        public double[] GetNormalizedVector()
+        {
+            double[] max = { 27, 27, 46, 46, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 1};
+            return MathUtilities.ItemWiseDivision(GetVector(), max);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="newArmies"></param>
+        /// <param name="enemyNewArmies"></param>
+        /// <param name="troops"></param>
+        /// <param name="enemyTroops"></param>
+        /// <param name="clusters"></param>
+        /// <param name="enemyClusters"></param>
+        /// <param name="countries"></param>
+        /// <param name="enemyCountries"></param>
+        /// <param name="freeCountries"></param>
+        /// <param name="borderingCountries"></param>
+        /// <param name="nearbyEnemies"></param>
+        /// <param name="freeNearbyCountries"></param>
+        /// <param name="largestClusterTroops"></param>
+        /// <param name="largestClusterCountries"></param>
+        /// <param name="largestEnemyClusterCountries"></param>
+        public State(double newArmies, double enemyNewArmies, double troops, double enemyTroops,
+            double clusters, double enemyClusters, double countries, double enemyCountries, 
+            double freeCountries, double borderingCountries, double nearbyEnemies, 
+            double freeNearbyCountries, double largestClusterTroops, double largestClusterCountries)
+        {
+            NewArmies = newArmies;
+            EnemyNewArmies = enemyNewArmies;
+            Troops = troops;
+            EnemyTroops = enemyTroops;
+            Clusters = clusters;
+            EnemyClusters = enemyClusters;
+            Countries = countries;
+            EnemyCountries = enemyCountries;
+            FreeCountries = freeCountries;
+            BorderingCountries = borderingCountries;
+            NearbyEnemies = nearbyEnemies;
+            FreeNearbyCountries = freeNearbyCountries;
+            LargestClusterTroops = largestClusterTroops;
+            LargestClusterCountries = largestClusterCountries;
+            Win = 1;
+        }
     }
 }

@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 namespace RiskAI
 {
 
-    public class Pais
+    public class Country
     {
         string Nombre { get; }
-        List<Pais> Vecinos { get; }
+        List<Country> Vecinos { get; }
         int Tropas { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="_Nombre"></param>
-        public Pais(string _Nombre)
+        public Country(string _Nombre)
         {
-            Vecinos = new List<Pais>();
+            Vecinos = new List<Country>();
             this.Nombre = _Nombre;
         }
         
@@ -27,7 +27,7 @@ namespace RiskAI
         /// 
         /// </summary>
         /// <param name="p"></param>
-        public void AgregarVecino(Pais p)
+        public void AgregarVecino(Country p)
         {
             Vecinos.Add(p);
         }

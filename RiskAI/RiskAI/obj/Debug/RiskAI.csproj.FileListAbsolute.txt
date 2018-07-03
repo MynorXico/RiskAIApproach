@@ -7,3 +7,4 @@ C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\obj\Debug\RiskAI.exe
 C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\obj\Debug\RiskAI.pdb
 C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\Data\Countries.txt
 C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\Data\Neighbors.txt
+C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\Data\orange.txt

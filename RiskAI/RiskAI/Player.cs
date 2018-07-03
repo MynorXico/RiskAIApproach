@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 namespace RiskAI
 {
-    class Jugador
+    class Player
     {
         string Nombre { get; }
 

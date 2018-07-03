@@ -8,6 +8,21 @@ namespace RiskAI
 {
     public static class MathUtilities
     {
+        public static double[] ItemWiseDivision(double[] numerador, double[] denominador)
+        {
+            if (numerador.Length != denominador.Length)
+                throw new Exception("v and w size has to be the same");
+
+            double[] result = new double[numerador.Length];
+
+            for(int i = 0; i < numerador.Length; i++)
+            {
+                result[i] = numerador[i] / denominador[i];
+            }
+            return result;
+        }
+
+
         /// <summary>
         /// Sum of the product of v's ith element with w's ith element
         /// </summary>
@@ -28,12 +43,12 @@ namespace RiskAI
             return result;
         }
 
-        public static double LogiscticFnc(double x)
+        public static double SigmoidFnc(double x)
         {
-            return 1 / (1+Math.Exp(-x));
+            return (double) 1 / (1+Math.Exp(-x));
         }
 
-        public static double LogisticDerivative(double x)
+        public static double SigmoidDerivative(double x)
         {
             return x * (1 - x);
         }

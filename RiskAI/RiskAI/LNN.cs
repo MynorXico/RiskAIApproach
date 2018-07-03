@@ -9,42 +9,59 @@ namespace RiskAI
     class LNN
     {
         const double learningRate = 0.1;
-        const double propagationRate = 0.6;
-        double[] weights = { 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 };
+        const double propagationRate = 1;
+        double[] weights;
 
+        public LNN(int numberOfFeatures)
+        {
+            weights = new double[numberOfFeatures];
+            for(int i = 0; i < weights.Length; i++)
+            {
+                weights[i] = (double)1 / (5*weights.Length);
+            }
+        }
 
         /// <summary>
         /// Score given a set of weights x and a set containing game features
         /// </summary>
         /// <returns> Value between 0 and 1 </returns>
-        public double Score(State s, double[] x)
+        public double Score(State s)
         {
-            return MathUtilities.LogiscticFnc(MathUtilities.DotProduct(s.GetVector(), x));
+            return MathUtilities.SigmoidFnc(MathUtilities.DotProduct(s.GetVector(), weights));
         }
 
         public double Variation(State s0, State s1)
         {
-            return Score(s1, weights) - Score(s0, weights);
+            double score0 = Score(s0);
+            double score1 = Score(s1);
+            return Score(s1) - Score(s0);
         }
 
-        public void UpdateWeights(double[] weights, Game trainingGame)
+        public void Train(Game trainingGame)
         {
             State[] states = trainingGame.States;
             for(int i = 0; i < weights.Length; i++)
             {
-                double currentWeight = weights[i];
                 double derivativesSum = 0;
 
-                for (int j = 1; j < states.Length; j++)
+                for (int t = 0; t < states.Length-1; t++)
                 {
                     double propagationSum = 0;
-                    for (int k = j; k < states.Length; k++)
+                    for (int j = t; j < states.Length-1; j++)
                     {
-                        propagationSum += Math.Pow(propagationRate, k - j)*Variation(states[j+1],states[j]);
+                        propagationSum += Math.Pow(propagationRate, j - t)*Variation(states[t+1],states[t]);
                     }
-                    derivativesSum +=  MathUtilities.LogisticDerivative(Score(states[j], weights))*states[j].GetVector()[i] * propagationSum;
+                    derivativesSum +=  MathUtilities.SigmoidDerivative(Score(states[t]))*states[t].GetNormalizedVector()[i] * propagationSum;
                 }
-                weights[i] = learningRate * derivativesSum;
+                weights[i] += learningRate * derivativesSum;
+            } 
+        }
+
+        public void Train(Game[] trainingGames)
+        {
+            for (int i = 0; i < trainingGames.Length; i++)
+            {
+                Train(trainingGames[i]);
             }
         }
     }
