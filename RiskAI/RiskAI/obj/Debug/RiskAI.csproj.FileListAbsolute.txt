@@ -7,6 +7,8 @@ C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\obj\Debug\RiskAI.exe
 C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\obj\Debug\RiskAI.pdb
 C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\Data\Countries.txt
 C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\Data\Neighbors.txt
-C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\Data\orange.txt
-C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\Data\red.txt
-C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\Data\green.txt
+C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\Data\w1.txt
+C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\Data\w2.txt
+C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\Data\w3.txt
+C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\Data\l1.txt
+C:\Users\Maynor\source\repos\RiskAIApproach\RiskAI\RiskAI\bin\Debug\Data\w4.txt

@@ -61,13 +61,13 @@ namespace RiskAI
         
         public double[] GetVector()
         {
-            double[] vector = { NewArmies, EnemyNewArmies, Troops, EnemyTroops, Clusters,EnemyClusters,Countries,EnemyCountries,FreeCountries,BorderingCountries,NearbyEnemies,FreeNearbyCountries,LargestClusterTroops,LargestClusterCountries,Win};
+            double[] vector = { NewArmies, EnemyNewArmies, Troops, EnemyTroops, Clusters,EnemyClusters,Countries,EnemyCountries,FreeCountries,BorderingCountries,NearbyEnemies,FreeNearbyCountries,LargestClusterTroops,LargestClusterCountries};
             return vector;
         }
 
         public double[] GetNormalizedVector()
         {
-            double[] max = { 27, 27, 95, 95, 42, 42, 42, 42, 42, 8, 42, 42, 95, 42, 1};
+            double[] max = { 27, 27, 95, 95, 42, 42, 42, 42, 42, 8, 42, 42, 95, 42};
             return MathUtilities.ItemWiseDivision(GetVector(), max);
         }
 
@@ -118,7 +118,6 @@ namespace RiskAI
             FreeNearbyCountries = freeNearbyCountries;
             LargestClusterTroops = largestClusterTroops;
             LargestClusterCountries = largestClusterCountries;
-            Win = 1;
         }
     }
 }

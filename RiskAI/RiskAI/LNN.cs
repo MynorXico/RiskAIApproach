@@ -17,7 +17,7 @@ namespace RiskAI
             weights = new double[numberOfFeatures];
             for(int i = 0; i < weights.Length; i++)
             {
-                weights[i] = (double)1 / (10*weights.Length);
+                weights[i] = (double)1 / (12*weights.Length);
                 //weights[i] = 1;
             }
         }

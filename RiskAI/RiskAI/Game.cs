@@ -15,7 +15,7 @@ namespace RiskAI
         {
             List<State> result = new List<State>();
             string[] fileLines = File.ReadAllLines(filePath);
-            for(int i = 0; i < fileLines.Length; i++)
+            for(int i = 1; i < fileLines.Length; i++)
             {
                 string currentLine = fileLines[i];
                 string[] fields = currentLine.Split(',');
@@ -25,7 +25,7 @@ namespace RiskAI
                     int.Parse(fields[11]), int.Parse(fields[12]), int.Parse(fields[13]));
                 result.Add(s);
             }
-            State s1 = new State(1);
+            State s1 = new State(int.Parse(fileLines[0]));
             result.Add(s1);
             States = result.ToArray();
             return result.ToArray();

@@ -10,9 +10,13 @@ namespace RiskAI
     {
         static readonly string _rutaNombresPaises = Path.Combine(Environment.CurrentDirectory, "Data", "Countries.txt");
         static readonly string _rutaVecinosPaises = Path.Combine(Environment.CurrentDirectory, "Data", "Neighbors.txt");
-        static readonly string _rutaTrainingGame1 = Path.Combine(Environment.CurrentDirectory, "Data", "orange.txt");
-        static readonly string _rutaTrainingGame2 = Path.Combine(Environment.CurrentDirectory, "Data", "red.txt");
-        static readonly string _rutaTrainingGame3 = Path.Combine(Environment.CurrentDirectory, "Data", "green.txt");
+        static readonly string _rutaTrainingGame1 = Path.Combine(Environment.CurrentDirectory, "Data", "w1.txt");
+        static readonly string _rutaTrainingGame2 = Path.Combine(Environment.CurrentDirectory, "Data", "w2.txt");
+        static readonly string _rutaTrainingGame3 = Path.Combine(Environment.CurrentDirectory, "Data", "w3.txt");
+        static readonly string _rutaTrainingGame4 = Path.Combine(Environment.CurrentDirectory, "Data", "w4.txt");
+        static readonly string _rutaTrainingGame5 = Path.Combine(Environment.CurrentDirectory, "Data", "l1.txt");
+
+
 
         static void Main(string[] args)
         {
@@ -21,9 +25,8 @@ namespace RiskAI
 
             int[] test = { 0, 0, 0, 0 };
 
-            modify(test);
 
-            LNN NeuralNetwork = new LNN(15);
+            LNN NeuralNetwork = new LNN(14);
             Game g = new Game();
             g.LoadStates(_rutaTrainingGame1);
 
@@ -32,32 +35,31 @@ namespace RiskAI
 
 
             Game g3 = new Game();
-
-            Game[] games = { g, g2, g3 };
-
             g3.LoadStates(_rutaTrainingGame3);
+
+            Game g4 = new Game();
+            g4.LoadStates(_rutaTrainingGame4);
+
+            Game g5 = new Game();
+            g5.LoadStates(_rutaTrainingGame5);
+
+            Game[] games = { g5, g2, g3, g4, g};
+
+
+
             NeuralNetwork.Train(games);
 
-            Console.WriteLine("=========================================");
-            for (int i = 0; i < g.States.Length; i++)
+            for(int j = 0; j < games.Length; j++)
             {
-                Console.WriteLine($"1-State {i}: {NeuralNetwork.Score(g.States[i])}");
+                Console.WriteLine($"========= GAME {j} =============");
+                for (int i = 0; i < games[j].States.Length; i++)
+                {
+                    Console.WriteLine($"State {i}: {NeuralNetwork.Score(games[j].States[i])}");
+                }
+
             }
-            Console.WriteLine("=========================================");
-
-            for (int i = 0; i < g2.States.Length; i++)
-            {
-                Console.WriteLine($"2-State {i}: {NeuralNetwork.Score(g2.States[i])}");
-            }
-
-            Console.WriteLine("=========================================");
-
-            for (int i = 0; i < g3.States.Length; i++)
-            {
-                Console.WriteLine($"3-State {i}: {NeuralNetwork.Score(g3.States[i])}");
-            }
-
             Console.ReadKey();
+
 
         }
     }
