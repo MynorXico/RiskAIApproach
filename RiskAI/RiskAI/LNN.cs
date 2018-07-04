@@ -9,15 +9,16 @@ namespace RiskAI
     class LNN
     {
         const double learningRate = 0.1;
-        const double propagationRate = 1;
+        const double propagationRate = 0.7;
         double[] weights;
 
         public LNN(int numberOfFeatures)
-        {
+        {   
             weights = new double[numberOfFeatures];
             for(int i = 0; i < weights.Length; i++)
             {
-                weights[i] = (double)1 / (5*weights.Length);
+                weights[i] = (double)1 / (10*weights.Length);
+                //weights[i] = 1;
             }
         }
 
@@ -32,8 +33,14 @@ namespace RiskAI
 
         public double Variation(State s0, State s1)
         {
-            double score0 = Score(s0);
-            double score1 = Score(s1);
+            if (s1.isFinalState)
+            {
+                return (s1.Reward) - Score(s0);
+            }
+            if (s0.isFinalState)
+            {
+                throw new Exception("Not expected: *");
+            }
             return Score(s1) - Score(s0);
         }
 
@@ -49,12 +56,18 @@ namespace RiskAI
                     double propagationSum = 0;
                     for (int j = t; j < states.Length-1; j++)
                     {
-                        propagationSum += Math.Pow(propagationRate, j - t)*Variation(states[t+1],states[t]);
+                        propagationSum += Math.Pow(propagationRate, j - t)*Variation(states[t],states[t+1]);
                     }
+
                     derivativesSum +=  MathUtilities.SigmoidDerivative(Score(states[t]))*states[t].GetNormalizedVector()[i] * propagationSum;
                 }
                 weights[i] += learningRate * derivativesSum;
             } 
+        }
+
+        private double Variation(State state, int v)
+        {
+            return 1 - Score(state);
         }
 
         public void Train(Game[] trainingGames)

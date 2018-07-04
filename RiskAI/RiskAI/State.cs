@@ -67,8 +67,18 @@ namespace RiskAI
 
         public double[] GetNormalizedVector()
         {
-            double[] max = { 27, 27, 46, 46, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 1};
+            double[] max = { 27, 27, 95, 95, 42, 42, 42, 42, 42, 8, 42, 42, 95, 42, 1};
             return MathUtilities.ItemWiseDivision(GetVector(), max);
+        }
+
+        public bool isFinalState = false;
+        
+        public double Reward { get; set; }
+
+        public State(int reward)
+        {
+            this.Reward = reward;
+            isFinalState = true;
         }
 
         /// <summary>

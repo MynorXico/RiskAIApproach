@@ -25,6 +25,8 @@ namespace RiskAI
                     int.Parse(fields[11]), int.Parse(fields[12]), int.Parse(fields[13]));
                 result.Add(s);
             }
+            State s1 = new State(1);
+            result.Add(s1);
             States = result.ToArray();
             return result.ToArray();
         }
