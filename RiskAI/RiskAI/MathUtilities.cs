@@ -52,5 +52,15 @@ namespace RiskAI
         {
             return x * (1 - x);
         }
+
+        public static double[] StringToDouble(string[] s)
+        {
+            List<double> ResultList = new List<double>();
+            for(int i = 0; i < s.Length; i++)
+            {
+                ResultList.Add(double.Parse(s[i]));
+            }
+            return ResultList.ToArray();
+        }
     }
 }

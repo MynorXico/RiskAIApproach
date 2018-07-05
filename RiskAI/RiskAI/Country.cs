@@ -10,7 +10,7 @@ namespace RiskAI
     public class Country
     {
         string Nombre { get; }
-        List<Country> Vecinos { get; }
+        public List<Country> Vecinos { get; }
         int Tropas { get; set; }
 
         /// <summary>
