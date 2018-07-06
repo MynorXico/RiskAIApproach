@@ -26,12 +26,12 @@ namespace RiskAI
         /// Score given a set of weights x and a set containing game features
         /// </summary>
         /// <returns> Value between 0 and 1 </returns>
-        public double Score(State s)
+        public double Score(FeaturesState s)
         {
             return MathUtilities.SigmoidFnc(MathUtilities.DotProduct(s.GetVector(), weights));
         }
 
-        public double Variation(State s0, State s1)
+        public double Variation(FeaturesState s0, FeaturesState s1)
         {
             if (s1.isFinalState)
             {
@@ -46,7 +46,7 @@ namespace RiskAI
 
         public void Train(Game trainingGame)
         {
-            State[] states = trainingGame.States;
+            FeaturesState[] states = trainingGame.States;
             for(int i = 0; i < weights.Length; i++)
             {
                 double derivativesSum = 0;
@@ -65,7 +65,7 @@ namespace RiskAI
             } 
         }
 
-        private double Variation(State state, int v)
+        private double Variation(FeaturesState state, int v)
         {
             return 1 - Score(state);
         }

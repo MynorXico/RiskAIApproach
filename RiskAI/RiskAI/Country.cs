@@ -31,6 +31,8 @@ namespace RiskAI
         {
             Vecinos.Add(p);
         }
+
+        public string Owner { get; }
     }
 
   
