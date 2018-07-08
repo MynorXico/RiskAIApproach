@@ -8,10 +8,10 @@ namespace RiskAI
 {
     class AIPredictor
     {
-        // File where training games are saved
+        // File where training games are stored
         static readonly string _trainingGamesPath = Path.Combine(Environment.CurrentDirectory, "TrainingGames");
         // Number of features taken into account for the predicting model
-        static readonly int _numberOfFeatures = 12;
+        static readonly int _numberOfFeatures = 56;
 
         LNN NeuralNetwork = new LNN(_numberOfFeatures);
         
@@ -23,7 +23,7 @@ namespace RiskAI
         {
             foreach(string s in Directory.EnumerateFiles(_trainingGamesPath))
             {
-                Game g = new Game();
+                GameRegister g = new GameRegister();
                 g.LoadStates(s);
                 NeuralNetwork.Train(g);
             }
@@ -121,7 +121,7 @@ namespace RiskAI
                 Moves.Add(bestMove);
                 movingState.Excecute(bestMove);
             }
-            return null;
+            return Moves;
         }
     }
 }

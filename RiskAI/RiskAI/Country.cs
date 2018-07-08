@@ -33,6 +33,7 @@ namespace RiskAI
         }
 
         public string Owner { get; }
+        public int Troops { get; }
     }
 
   

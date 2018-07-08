@@ -44,7 +44,7 @@ namespace RiskAI
             return Score(s1) - Score(s0);
         }
 
-        public void Train(Game trainingGame)
+        public void Train(GameRegister trainingGame)
         {
             FeaturesState[] states = trainingGame.States;
             for(int i = 0; i < weights.Length; i++)
@@ -70,7 +70,7 @@ namespace RiskAI
             return 1 - Score(state);
         }
 
-        public void Train(Game[] trainingGames)
+        public void Train(GameRegister[] trainingGames)
         {
             for (int i = 0; i < trainingGames.Length; i++)
             {

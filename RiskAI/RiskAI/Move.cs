@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace RiskAI
 {
-    class Move
+    public class Move
     {
+        Country From { get; }
+        Country To { get; }
+        int NTroops { get; }
+
+        public Move(Country from, Country to, int numberOfTroops)
+        {
+            this.From = from;
+            this.To = to;
+            this.NTroops = numberOfTroops;
+        }
     }
 }

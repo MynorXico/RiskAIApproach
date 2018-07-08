@@ -9,7 +9,7 @@ namespace RiskAI
     /// <summary>
     /// State of the board at a given turn
     /// </summary>
-    public class State
+    public class FeaturesState
     {
         // Number of armies a player is given at the begining of the turn
         double NewArmies { get; }
@@ -177,13 +177,18 @@ namespace RiskAI
         
         public double Reward { get; set; }
 
-        public State(int reward)
+        public FeaturesState(int reward)
         {
             this.Reward = reward;
             isFinalState = true;
         }
 
-        public State(
+        public FeaturesState Excecute(Move m)
+        {
+            return null;
+        }
+
+        public FeaturesState(
             double newArmies,
             double enemyNewArmies,
             double troops,
@@ -304,4 +309,5 @@ namespace RiskAI
 
         }
     }
+    
 }

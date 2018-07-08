@@ -7,19 +7,19 @@ using System.IO;
 
 namespace RiskAI
 {
-    class Game
+    class GameRegister
     {
-        public State[] States { get; set; }
+        public FeaturesState[] States { get; set; }
 
-        public State[] LoadStates(string filePath)
+        public FeaturesState[] LoadStates(string filePath)
         {
-            List<State> result = new List<State>();
+            List<FeaturesState> result = new List<FeaturesState>();
             string[] fileLines = File.ReadAllLines(filePath);
             for(int i = 1; i < fileLines.Length; i++)
             {
                 string currentLine = fileLines[i];
                 string[] fields = currentLine.Split(',');
-                State s = new State(
+                FeaturesState s = new FeaturesState(
                     double.Parse(fields[0]),    // New armies
                     double.Parse(fields[1]),    // Enemy new armies
                     double.Parse(fields[2]),    // Troops
@@ -81,7 +81,7 @@ namespace RiskAI
                     );
                 result.Add(s);
             }
-            State s1 = new State(int.Parse(fileLines[0]));
+            FeaturesState s1 = new FeaturesState(int.Parse(fileLines[0]));
             result.Add(s1);
             States = result.ToArray();
             return result.ToArray();
